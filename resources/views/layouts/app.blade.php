@@ -9,7 +9,11 @@
 
     <title>@yield('title', config('app.title', 'Laravel'))</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Taviraj:wght@100;200;300;400;500;600;700&display=swap" />
+
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
 <body class="@yield('bodyClass')">
