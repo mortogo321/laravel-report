@@ -21,7 +21,7 @@ const agencyName = document.querySelector('span[name="agency"]');
 if (agency && agencyName) {
     agency.onchange = () => {
         agencyName.innerHTML = agency.options[agency.selectedIndex].text;
-        renderTable()
+        renderTable();
     };
 }
 
@@ -50,22 +50,38 @@ function renderTable() {
                 <ul class="list-none m-0 p-0">
                     <li class="pl-8 py-1">${column[2]}</li>
                     <li class="pl-8 py-1">${column[4]}</li>
+                    <li class="pl-8 py-1"></li>
                 </ul>
             </td>
             <td>
                 <ul class="list-none m-0 p-0">
-                    <li class="pl-7 py-1">${numeral(column[3]).format(
-                        "0%"
-                    )}</li>
-                    <li class="pl-7 py-1">${numeral(column[5]).format(
-                        "0%"
-                    )}</li>
+                    <li class="text-end pr-5 py-1">
+                    ${numeral(column[3]).format("0%")}
+                    </li>
+                    <li class="text-end pr-5 py-1">
+                    ${numeral(column[5]).format("0%")}
+                    </li>
+                    <li class="text-end pr-5 py-1">
+                    ${numeral(column[3] + column[5]).format("0%")}
+                    </li>
                 </ul>
             </td>
-            <td class="pl-10 py-1">${column[6]}</td>
+            <td>
+                <ul class="list-none m-0 p-0">
+                    <li class="text-end pr-5 py-1">
+                    &nbsp;
+                    </li>
+                    <li class="text-end pr-5 py-1">
+                    &nbsp;
+                    </li>
+                    <li class="text-end pr-5 py-1 bg-yellow-200">
+                    ${column[6]}
+                    </li>
+                </ul>
+            </td>
             </tr>`;
         });
 
         table.innerHTML = tr;
     }
-};
+}
